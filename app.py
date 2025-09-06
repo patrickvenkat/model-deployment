@@ -5,8 +5,10 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def home():
     text = ""
+    
     if request.method == 'POST':
         text = request.form.get('email-content')
+    
     return render_template('spam_classifier.html', text=text)
 
 
