@@ -14,7 +14,7 @@ def predict():
     email = request.form.get('email-content')
     tokenized_email = cv.transform([email]) # X 
     prediction = clf.predict(tokenized_email)
-    prediction = "Not Spam" if prediction == 1 else "Spam"
+    prediction = 1 if prediction == 1 else -1
     
     return render_template("index.html", prediction=prediction, email=email)
 
